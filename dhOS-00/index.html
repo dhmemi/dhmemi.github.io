@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux,汇编,C," />
 
 
 
@@ -87,12 +87,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="DHMEMI博客">
-<meta property="og:url" content="http://dhmemi.github.io/index.html">
+<meta name="description" content="引言&amp;emsp;&amp;emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。
+一个最简单的操作系统操作系统是怎样运行起来的&amp;emsp;&amp;emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写一个操作系统（〇）">
+<meta property="og:url" content="http://dhmemi.github.io/dhOS-00/index.html">
 <meta property="og:site_name" content="DHMEMI博客">
+<meta property="og:description" content="引言&amp;emsp;&amp;emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。
+一个最简单的操作系统操作系统是怎样运行起来的&amp;emsp;&amp;emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不">
+<meta property="og:image" content="http://dhmemi.github.io/images/dhos_00_int_10h.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/dhos_00_qemu.png">
+<meta property="og:updated_time" content="2017-04-04T18:57:33.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DHMEMI博客">
+<meta name="twitter:title" content="写一个操作系统（〇）">
+<meta name="twitter:description" content="引言&amp;emsp;&amp;emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。
+一个最简单的操作系统操作系统是怎样运行起来的&amp;emsp;&amp;emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不">
+<meta name="twitter:image" content="http://dhmemi.github.io/images/dhos_00_int_10h.png">
 
 
 
@@ -120,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://dhmemi.github.io/"/>
+  <link rel="canonical" href="http://dhmemi.github.io/dhOS-00/"/>
 
 
 
 
 
-  <title> DHMEMI博客 </title>
+  <title> 写一个操作系统（〇） | DHMEMI博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,9 +171,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,9 +284,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -308,10 +316,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/dhOS-00/" itemprop="url">
-                  写一个操作系统（〇）
-                </a>
+                写一个操作系统（〇）
               
             
           </h1>
@@ -394,9 +399,7 @@
       
 
       
-        
-          
-            <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>&emsp;&emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。</p>
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>&emsp;&emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。</p>
 <h1 id="一个最简单的操作系统"><a href="#一个最简单的操作系统" class="headerlink" title="一个最简单的操作系统"></a>一个最简单的操作系统</h1><h2 id="操作系统是怎样运行起来的"><a href="#操作系统是怎样运行起来的" class="headerlink" title="操作系统是怎样运行起来的"></a>操作系统是怎样运行起来的</h2><p>&emsp;&emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不干，那就等于不存在了。所以还是得干一点最简单的事，比如输出个”Hello world!”。<br>&emsp;&emsp;我们的操作系统要想输出个”Hello world!”,首先得运行起来。那么操作系统是怎么运行起来的呢？<br>&emsp;&emsp;当我们按下计算机的电源键后，计算机就会自动开始执行被固化到计算机ROM芯片上的BIOS程序，这个程序在完成自检等操作后，就会去读取磁盘物理起始位置的扇区(512Byte)加载到内存中（当然，前提是这个扇区已被申明为引导扇区），然后自动跳转到这个块数据在内存中的位置并开始执行这段指令。如果你自己安装过操作系统或者接触过BIOS，你就会知道计算机启动时是可以在BIOS里选择启动磁盘的，其实这里选择启动盘，就是在选择BIOS加载哪一个磁盘的起始扇区。所以这里我们就利用这个块来载入我们的操作系统。</p>
 <h2 id="编写最简单的操作系统"><a href="#编写最简单的操作系统" class="headerlink" title="编写最简单的操作系统"></a>编写最简单的操作系统</h2><h3 id="申明引导扇区"><a href="#申明引导扇区" class="headerlink" title="申明引导扇区"></a>申明引导扇区</h3><p>&emsp;&emsp;为了载入我们的最简单的操作系统，我们就要把磁盘（或者软盘）中的第一个扇区申明为一个引导扇区（主引导记录MBR）,申明引导扇区的方法很简单，就是在起始扇区末尾两个字节写入0xAA55，所以，我们的引导程序可能是这样的：<br><figure class="highlight as"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">;boot programs</div><div class="line">;<span class="number">512</span> byte</div><div class="line">dw <span class="number">0xaa55</span> ; 结束标志</div></pre></td></tr></table></figure></p>
 <p>有了这行汇编代码，当我们的程序写入磁盘第一个扇区后，这个扇区就会被识别为引导扇区，BIOS就会加载这个扇区到内存特定位置中并执行它。</p>
@@ -416,189 +419,89 @@
 <li>《Linux内核完全剖析基于0.12版》修正版3.0，赵炯。</li>
 </ol>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://dhmemi.github.io/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dhmemi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/headicon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DHMEMI博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/hello-world/" itemprop="url">
-                  DHMEMI博客自此开始
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T17:14:01+08:00">
-                2017-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/废话/" itemprop="url" rel="index">
-                    <span itemprop="name">废话</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-
+            <a href="/tags/汇编/" rel="tag"># 汇编</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/C/" rel="tag"># C</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-            <p>之前花了半天时间，终于折腾好了自己的博客，第一次利用github-pg搭建个人博客，对着别人写的教程一点点配置，许多地方现在也没弄明白。而且选择的这个主题也不是很美观，本来想自己学着改一改或者直接换个漂亮点的主题，但一想又觉得博客内容才是王道，一天尽折腾主题岂不是跑偏了？有了这样冠冕堂皇的理由，也就将就将就了。当然，最根本的原因是因为，我懒。<br>运气也是略差，好不容易配置好多说评论，但是多说却表示要调整业务，马上就要停止支持页面评论了，但暂时我也懒得再改了。<br>说是内容才是王道，配置好了几个星期了也没来得及输出半点内容，今天闲了，才打算开始写点东西了。也不知道能坚持几天。管他呢，先写一篇算一篇吧。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hello-world/" rel="next" title="DHMEMI博客自此开始">
+                <i class="fa fa-chevron-left"></i> DHMEMI博客自此开始
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="dhOS-00/"
+     data-title="写一个操作系统（〇）"
+     data-content=""
+     data-url="http://dhmemi.github.io/dhOS-00/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
           
           </div>
@@ -606,6 +509,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="dhOS-00/"
+           data-title="写一个操作系统（〇）" data-url="http://dhmemi.github.io/dhOS-00/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -625,8 +536,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/headicon.jpg"
@@ -717,6 +637,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个最简单的操作系统"><span class="nav-number">2.</span> <span class="nav-text">一个最简单的操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统是怎样运行起来的"><span class="nav-number">2.1.</span> <span class="nav-text">操作系统是怎样运行起来的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写最简单的操作系统"><span class="nav-number">2.2.</span> <span class="nav-text">编写最简单的操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#申明引导扇区"><span class="nav-number">2.2.1.</span> <span class="nav-text">申明引导扇区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“Hello-world-”"><span class="nav-number">2.2.2.</span> <span class="nav-text">“Hello world!”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#载入引导扇区并显示字符串"><span class="nav-number">2.2.3.</span> <span class="nav-text">载入引导扇区并显示字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整程序"><span class="nav-number">2.2.4.</span> <span class="nav-text">完整程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译运行"><span class="nav-number">2.2.5.</span> <span class="nav-text">编译运行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -827,6 +763,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
