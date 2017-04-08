@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux,汇编,C," />
+  <meta name="keywords" content="Hexo,javascripts," />
 
 
 
@@ -87,22 +87,19 @@
 
 
 
-<meta name="description" content="引言&amp;emsp;&amp;emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。
-一个最简单的操作系统操作系统是怎样运行起来的&amp;emsp;&amp;emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不">
+<meta name="description" content="Hexo脚本&amp;emsp;&amp;emsp;Hexo命令会自动触发一些事件，利用这些事件，我们可以为不同的Hexo命令添加一些额外的自定义功能。我们只需要在Hexo根目录下添加一个scripts文件夹，然后将我们编写的脚本文件放在这个文件夹中，当某一事件被触发时，接收相应事件的脚本就会被自动执行。
+自动备份博客源文件&amp;emsp;&amp;emsp;Hexo部署的github-pages博客在发布时只会上传生成的页">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写一个操作系统（〇）——最简单的系统">
-<meta property="og:url" content="http://dhmemi.github.io/2017/memiOS-00/index.html">
+<meta property="og:title" content="巧用Hexo脚本——备份博客源文件与自动打开新文件">
+<meta property="og:url" content="http://dhmemi.github.io/2017/hexo-scripts/index.html">
 <meta property="og:site_name" content="DHMEMI博客">
-<meta property="og:description" content="引言&amp;emsp;&amp;emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。
-一个最简单的操作系统操作系统是怎样运行起来的&amp;emsp;&amp;emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不">
-<meta property="og:image" content="http://dhmemi.github.io/images/memios_00_int_10h.png">
-<meta property="og:image" content="http://dhmemi.github.io/images/memios_00_qemu.png">
-<meta property="og:updated_time" content="2017-04-08T06:42:45.153Z">
+<meta property="og:description" content="Hexo脚本&amp;emsp;&amp;emsp;Hexo命令会自动触发一些事件，利用这些事件，我们可以为不同的Hexo命令添加一些额外的自定义功能。我们只需要在Hexo根目录下添加一个scripts文件夹，然后将我们编写的脚本文件放在这个文件夹中，当某一事件被触发时，接收相应事件的脚本就会被自动执行。
+自动备份博客源文件&amp;emsp;&amp;emsp;Hexo部署的github-pages博客在发布时只会上传生成的页">
+<meta property="og:updated_time" content="2017-04-08T07:33:04.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写一个操作系统（〇）——最简单的系统">
-<meta name="twitter:description" content="引言&amp;emsp;&amp;emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。
-一个最简单的操作系统操作系统是怎样运行起来的&amp;emsp;&amp;emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不">
-<meta name="twitter:image" content="http://dhmemi.github.io/images/memios_00_int_10h.png">
+<meta name="twitter:title" content="巧用Hexo脚本——备份博客源文件与自动打开新文件">
+<meta name="twitter:description" content="Hexo脚本&amp;emsp;&amp;emsp;Hexo命令会自动触发一些事件，利用这些事件，我们可以为不同的Hexo命令添加一些额外的自定义功能。我们只需要在Hexo根目录下添加一个scripts文件夹，然后将我们编写的脚本文件放在这个文件夹中，当某一事件被触发时，接收相应事件的脚本就会被自动执行。
+自动备份博客源文件&amp;emsp;&amp;emsp;Hexo部署的github-pages博客在发布时只会上传生成的页">
 
 
 
@@ -130,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://dhmemi.github.io/2017/memiOS-00/"/>
+  <link rel="canonical" href="http://dhmemi.github.io/2017/hexo-scripts/"/>
 
 
 
 
 
-  <title> 写一个操作系统（〇）——最简单的系统 | DHMEMI博客 </title>
+  <title> 巧用Hexo脚本——备份博客源文件与自动打开新文件 | DHMEMI博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://dhmemi.github.io/2017/memiOS-00/">
+    <link itemprop="mainEntityOfPage" href="http://dhmemi.github.io/2017/hexo-scripts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dhmemi">
@@ -316,7 +313,7 @@
             
             
               
-                写一个操作系统（〇）——最简单的系统
+                巧用Hexo脚本——备份博客源文件与自动打开新文件
               
             
           </h1>
@@ -331,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T17:38:05+08:00">
-                2017-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T14:46:49+08:00">
+                2017-04-08
               </time>
             
 
@@ -347,7 +344,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-08T14:42:45+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-04-08T15:33:04+08:00">
                 2017-04-08
               </time>
             
@@ -366,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/操作系统/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
                   </a>
                 </span>
 
@@ -383,7 +380,7 @@
 
           
           
-             <span id="/2017/memiOS-00/" class="leancloud_visitors" data-flag-title="写一个操作系统（〇）——最简单的系统">
+             <span id="/2017/hexo-scripts/" class="leancloud_visitors" data-flag-title="巧用Hexo脚本——备份博客源文件与自动打开新文件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -412,26 +409,12 @@
       
 
       
-        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>&emsp;&emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。</p>
-<h1 id="一个最简单的操作系统"><a href="#一个最简单的操作系统" class="headerlink" title="一个最简单的操作系统"></a>一个最简单的操作系统</h1><h2 id="操作系统是怎样运行起来的"><a href="#操作系统是怎样运行起来的" class="headerlink" title="操作系统是怎样运行起来的"></a>操作系统是怎样运行起来的</h2><p>&emsp;&emsp;要想写一个操作系统，首先得明白操作系统都干了些什么。但这里既然是讲一个最简单的操作系统，当然是什么都不干的操作系统最简单了。可是如果真的什么都不干，那就等于不存在了。所以还是得干一点最简单的事，比如输出个”Hello, memi OS!”。<br>&emsp;&emsp;我们的操作系统要想输出个”Hello, memi OS!”,首先得运行起来。那么操作系统是怎么运行起来的呢？<br>&emsp;&emsp;当我们按下计算机的电源键后，计算机就会自动开始执行被固化到计算机ROM芯片上的BIOS程序，这个程序在完成自检等操作后，就会去读取磁盘物理起始位置的扇区(512Byte)加载到内存中（当然，前提是这个扇区已被申明为引导扇区），然后自动跳转到这个块数据在内存中的位置并开始执行这段指令。如果你自己安装过操作系统或者接触过BIOS，你就会知道计算机启动时是可以在BIOS里选择启动磁盘的，其实这里选择启动盘，就是在选择BIOS加载哪一个磁盘的起始扇区。所以这里我们就利用这个块来载入我们的操作系统。</p>
-<h2 id="编写最简单的操作系统"><a href="#编写最简单的操作系统" class="headerlink" title="编写最简单的操作系统"></a>编写最简单的操作系统</h2><h3 id="申明引导扇区"><a href="#申明引导扇区" class="headerlink" title="申明引导扇区"></a>申明引导扇区</h3><p>&emsp;&emsp;为了载入我们的最简单的操作系统，我们就要把磁盘（或者软盘）中的第一个扇区申明为一个引导扇区（主引导记录MBR）,申明引导扇区的方法很简单，就是在起始扇区末尾两个字节写入0xAA55，所以，我们的引导程序可能是这样的：<br><figure class="highlight as"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">;boot programs</div><div class="line">;<span class="number">510</span> byte</div><div class="line">dw <span class="number">0xaa55</span> ; 结束标志</div></pre></td></tr></table></figure></p>
-<p>有了这行汇编代码，当我们的程序写入磁盘第一个扇区后，这个扇区就会被识别为引导扇区，BIOS就会加载这个扇区到内存特定位置中并执行它。</p>
-<h3 id="“Hello-memi-OS-”"><a href="#“Hello-memi-OS-”" class="headerlink" title="“Hello, memi OS!”"></a>“Hello, memi OS!”</h3><p>&emsp;&emsp;为了输出”Hello, memi OS!”字符串，我们需要在程序中定义一个字符串：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BootMessage: db <span class="string">"Hello, memi OS!"</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;有了字符串以后，我们需要调用BIOS中断函数将这个字符串显示出来。要知道，我们是在开发一个系统底层最开始的程序，这个时候是没有如同我们在编写普通C程序时的“printf()”这样的系统调用的，那怎样才能显示我们的字符串呢？好在硬件开发商已经在BIOS中为我们初始化了一些最基本的和硬件打交道的接口，这些接口的调用地址被初始化在BIOS的<a href="http://wiki.osdev.org/BIOS" target="_blank" rel="external">中断向量表(interrupt vector table，IVT)</a>中（如果你对中断还不了解的话，有必要先去了解一下有关中断的知识。）查询x86架构BIOS的中断向量表，可以看到，有一个用于视频服务的中断向量10h，其详细调用方法如下：<img src="/images/memios_00_int_10h.png" alt="图片挂掉了！！！">调用这个中断，并传入合适的参数，即可显示字符串：<br><figure class="highlight as"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">DispStr:</div><div class="line">mov ax, BootMessage ; 将前面申明的字符串地址传给ax寄存器</div><div class="line">mov bp, ax ; ES:BP = 串地址</div><div class="line">mov cx, <span class="number">15</span> ; CX = 串长度</div><div class="line">mov ax, <span class="number">01301</span>h ; 显示字符串(AH = <span class="number">13</span>), 光标跟随(AL = <span class="number">01</span>h)</div><div class="line">mov bx, <span class="number">000</span>ch ; 页号为<span class="number">0</span> (BH = <span class="number">0</span>), 黑底红字(BL = <span class="number">0</span>Ch,高亮)</div><div class="line">mov dl, <span class="number">0</span></div><div class="line">int <span class="number">10</span>h ; <span class="number">10</span>h 号中断</div><div class="line">ret</div></pre></td></tr></table></figure></p>
-<h3 id="载入引导扇区并显示字符串"><a href="#载入引导扇区并显示字符串" class="headerlink" title="载入引导扇区并显示字符串"></a>载入引导扇区并显示字符串</h3><p>&emsp;&emsp;在x86架构中，BIOS会将引导扇区加载到内存中0x7c00h处，并跳转到这里开始执行。为了我们的程序能正确寻址，程序开头必须加上这样一句伪指令：<br><figure class="highlight as"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">org <span class="number">0x7c00</span>h ; 告诉编译器程序加载到<span class="number">7</span>c00处</div></pre></td></tr></table></figure></p>
-<p>接下来，就是调用显示函数然后进入死循环以便我们可以看见显示的内容了：<br><figure class="highlight as"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mov ax, cs</div><div class="line">mov ds, ax</div><div class="line">mov es, ax</div><div class="line">call DispStr ; 调用显示字符串例程</div><div class="line">jmp $ ; 无限循环(在nasm汇编语言中，$表示当前指令地址)</div></pre></td></tr></table></figure></p>
-<h3 id="完整程序"><a href="#完整程序" class="headerlink" title="完整程序"></a>完整程序</h3><p>&emsp;&emsp;前面我们说过，一个扇区有512Byte,但如果我们把上面这些程序编译到一起，显然不足512Byte，为了解决这一问题，我们需要在程序后面的空间中都补上0来占位：<br><figure class="highlight as"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">times <span class="number">510</span> - ($-$$) db <span class="number">0</span> ; 填充剩下的空间,使生成的二进制代码恰好为<span class="number">512</span>字节(在nasm中，$$表示程序起始地址)</div></pre></td></tr></table></figure></p>
-<p>所以，我们的整个程序可以是这样的：<br><figure class="highlight as"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">；filename: boot.asm</div><div class="line">org <span class="number">07</span>c00h ; 告诉编译器程序加载到<span class="number">7</span>c00处</div><div class="line">mov ax, cs</div><div class="line">mov ds, ax</div><div class="line">mov es, ax</div><div class="line">call DispStr ; 调用显示字符串例程</div><div class="line">jmp $ ; 无限循环</div><div class="line">DispStr:</div><div class="line">mov ax, BootMessage ; 将前面申明的字符串地址传给ax寄存器</div><div class="line">mov bp, ax ; ES:BP = 串地址</div><div class="line">mov cx, <span class="number">15</span> ; CX = 串长度</div><div class="line">mov ax, <span class="number">01301</span>h ; 显示字符串(AH = <span class="number">13</span>), 光标跟随(AL = <span class="number">01</span>h)</div><div class="line">mov bx, <span class="number">000</span>ch ; 页号为<span class="number">0</span> (BH = <span class="number">0</span>) 黑底红字(BL = <span class="number">0</span>Ch,高亮)</div><div class="line">mov dl, <span class="number">0</span></div><div class="line">int <span class="number">10</span>h ; <span class="number">10</span>h 号中断</div><div class="line">ret</div><div class="line">BootMessage: db <span class="string">"Hello, memi OS!"</span></div><div class="line">times <span class="number">510</span> - ($-$$) db <span class="number">0</span> ; 填充剩下的空间,使生成的二进制代码恰好为<span class="number">512</span>字节(在nasm中，$$表示程序起始地址)</div><div class="line">dw <span class="number">0xaa55</span> ; 结束标志</div></pre></td></tr></table></figure></p>
-<h3 id="编译运行"><a href="#编译运行" class="headerlink" title="编译运行"></a>编译运行</h3><p>&emsp;&emsp;在Linux下，安装nasm编译器、bximage磁盘工具、qemu模拟器:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; sudo apt-get install nasm bximage qemu</div></pre></td></tr></table></figure></p>
-<p>然后执行命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; nasm boot.asm -o boot.bin <span class="comment">#编译生成机器码</span></div><div class="line">&gt; bximage -fd <span class="comment">#创建软盘印象 a.img</span></div><div class="line">&gt; dd <span class="keyword">if</span>=boot.bin of=a.img bs=512 count=1 conv=notrunc <span class="comment">#将boot程序写入软盘印象文件</span></div><div class="line">&gt; qemu -fda a.img <span class="comment">#运行模拟器</span></div></pre></td></tr></table></figure></p>
-<p>就可以看到屏幕上输出的红色字符串”Hello, memi OS!”:<img src="/images/memios_00_qemu.png" alt="图片挂掉了！！！"></p>
-<h1 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h1><p>&emsp;&emsp;至此，我们的最简单的操作系统就完成了。当然，这个操作系统几乎什么都没干，所以严格来说它并不算一个操作系统。但当我们了解了操作系统的启动方法之后，其他功能的实现，就与普通的编程并没有太大区别了，无非就是把这里的显示字符串替换为其他功能而已。<br>&emsp;&emsp;但是，其他功能的实现也依然是一个挑战。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
-<li><a href="http://www.ruanyifeng.com/blog/2013/02/booting.html" target="_blank" rel="external">阮一峰的网络日志</a>；</li>
-<li><a href="http://blog.chinaunix.net/uid-27033491-id-3239348.html" target="_blank" rel="external">BIOS中断大全</a>;</li>
-<li>《一个操作系统的实现》第二版，电子工业出版社，于渊；</li>
-<li>《Linux内核完全剖析基于0.12版》修正版3.0，赵炯。</li>
-</ol>
+        <h1 id="Hexo脚本"><a href="#Hexo脚本" class="headerlink" title="Hexo脚本"></a>Hexo脚本</h1><p>&emsp;&emsp;Hexo命令会自动触发一些事件，利用这些事件，我们可以为不同的Hexo命令添加一些额外的自定义功能。我们只需要在Hexo根目录下添加一个scripts文件夹，然后将我们编写的脚本文件放在这个文件夹中，当某一事件被触发时，接收相应事件的脚本就会被自动执行。</p>
+<h1 id="自动备份博客源文件"><a href="#自动备份博客源文件" class="headerlink" title="自动备份博客源文件"></a>自动备份博客源文件</h1><p>&emsp;&emsp;Hexo部署的github-pages博客在发布时只会上传生成的页面文件，而我们的源文件却没有上传,这就导致博客源文件没有备份，当然我们可以在GitHub上新建一个repo来管理我们的源文件，但是这样每次都需要手动备份，有点麻烦。这个时候，就需要利用Hexo事件来运行自动脚本了。直接上代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// filename: backup.js</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'shelljs/global'</span>);</div><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">	hexo.on(<span class="string">'generateAfter'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="comment">//当generate完成后执行备份</span></div><div class="line">		run();</div><div class="line">	&#125;);</div><div class="line">&#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"产生了一个错误&lt;(￣3￣)&gt; !，错误详情为："</span> + e.toString());</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">	echo(<span class="string">"==================Source Auto Backup Begin========================"</span>);</div><div class="line">	cd(<span class="string">'/home/dhmemi/Documents/blog_dhmemi'</span>);    <span class="comment">//此处修改为Hexo根目录路径</span></div><div class="line">	exec(<span class="string">'if [ ! -d "public" ]; then\nmkdir public\nfi'</span>);</div><div class="line">	</div><div class="line">	<span class="keyword">if</span> (exec(<span class="string">'cp -avx source public/'</span>).code !== <span class="number">0</span>) &#123;</div><div class="line">		echo(<span class="string">'Error: copy source failed'</span>);</div><div class="line">		exit(<span class="number">1</span>);</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		echo(<span class="string">"==============Source Auto Backup Complete========================="</span>)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个脚本所完成的功能很简单，就是在Hexo生成（generate）完成后，将source文件夹复制到public目录下，这样，在发布（deploy）时，源文件目录就会自动被复制到.git_deploy目录下并被当作生成目录发布到github上。保存上面的脚本到scripts目录下即可。<br>&emsp;&emsp;当然在运行这个脚本之前，你一定注意到了第一行的”shelljs/global”，所以你要安装shelljs模块：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; sudo npm install --save shelljs</div></pre></td></tr></table></figure></p>
+<h1 id="自动打开新文件"><a href="#自动打开新文件" class="headerlink" title="自动打开新文件"></a>自动打开新文件</h1><p>&emsp;&emsp;相信你一定觉得每次执行下面这样的流程很不方便：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; Hexo new yournewblog</div><div class="line">&gt; <span class="built_in">cd</span> <span class="built_in">source</span>/_post</div><div class="line">&gt; xdg-open yournewblog.md</div></pre></td></tr></table></figure></p>
+<p>有了上面的经验，我们完全可以写一个脚本来自动完成这个过程：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//filename: opennew.js</span></div><div class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">  exec(<span class="string">'xdg-open '</span>+data.path); <span class="comment">//你可以将xdg-open换成你习惯的文本浏览器，比如gedit、vim等。</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>这个脚本更简单，就是在执行 Hexo new 命令后自动执行条打开文件的shell命令而已。<br>&emsp;&emsp;现在，你已经学会了如何利用Hexo事件来完成自己的工作，你可以利用这一机制完成更多的事情。</p>
 
       
     </div>
@@ -461,11 +444,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           
-            <a href="/tags/汇编/" rel="tag"># 汇编</a>
-          
-            <a href="/tags/C/" rel="tag"># C</a>
+            <a href="/tags/javascripts/" rel="tag"># javascripts</a>
           
         </div>
       
@@ -478,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/hello-world/" rel="next" title="DHMEMI博客自此开始">
-                <i class="fa fa-chevron-left"></i> DHMEMI博客自此开始
+              <a href="/2017/memiOS-00/" rel="next" title="写一个操作系统（〇）——最简单的系统">
+                <i class="fa fa-chevron-left"></i> 写一个操作系统（〇）——最简单的系统
               </a>
             
           </div>
@@ -487,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/hexo-scripts/" rel="prev" title="巧用Hexo脚本——备份博客源文件与自动打开新文件">
-                巧用Hexo脚本——备份博客源文件与自动打开新文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -656,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个最简单的操作系统"><span class="nav-number">2.</span> <span class="nav-text">一个最简单的操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统是怎样运行起来的"><span class="nav-number">2.1.</span> <span class="nav-text">操作系统是怎样运行起来的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写最简单的操作系统"><span class="nav-number">2.2.</span> <span class="nav-text">编写最简单的操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#申明引导扇区"><span class="nav-number">2.2.1.</span> <span class="nav-text">申明引导扇区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“Hello-memi-OS-”"><span class="nav-number">2.2.2.</span> <span class="nav-text">“Hello, memi OS!”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#载入引导扇区并显示字符串"><span class="nav-number">2.2.3.</span> <span class="nav-text">载入引导扇区并显示字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整程序"><span class="nav-number">2.2.4.</span> <span class="nav-text">完整程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译运行"><span class="nav-number">2.2.5.</span> <span class="nav-text">编译运行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后话"><span class="nav-number">3.</span> <span class="nav-text">后话</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo脚本"><span class="nav-number">1.</span> <span class="nav-text">Hexo脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动备份博客源文件"><span class="nav-number">2.</span> <span class="nav-text">自动备份博客源文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动打开新文件"><span class="nav-number">3.</span> <span class="nav-text">自动打开新文件</span></a></li></ol></div>
             
 
           </div>
