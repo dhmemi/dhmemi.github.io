@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="汇编,CPU," />
 
 
 
@@ -87,12 +87,36 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="DHMEMI博客">
-<meta property="og:url" content="http://dhmemi.github.io/index.html">
+<meta name="description" content="引言&amp;emsp;&amp;emsp;在正式开始写我们的操作系统之前，有必要了解一些预备知识，例如一些与硬件有关的知识、汇编、CUP等。这一篇博客主要讲一讲CPU。
+80x86家族&amp;emsp;&amp;emsp;在CPU领域，最具代表性的就是intel的80x86系列，这一系列CPU包含了从8位到32位的CPU,几乎见证了到目前为止整个计算机发展的历史，也是现在大多数系统、汇编教程的常用平台，在这里也不例外。所以我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写一个操作系统（一）——预备知识：CUP">
+<meta property="og:url" content="http://dhmemi.github.io/2017/memiOS-01/index.html">
 <meta property="og:site_name" content="DHMEMI博客">
+<meta property="og:description" content="引言&amp;emsp;&amp;emsp;在正式开始写我们的操作系统之前，有必要了解一些预备知识，例如一些与硬件有关的知识、汇编、CUP等。这一篇博客主要讲一讲CPU。
+80x86家族&amp;emsp;&amp;emsp;在CPU领域，最具代表性的就是intel的80x86系列，这一系列CPU包含了从8位到32位的CPU,几乎见证了到目前为止整个计算机发展的历史，也是现在大多数系统、汇编教程的常用平台，在这里也不例外。所以我">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_cry.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_cry.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_cry.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_cry.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_cry.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_cry.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_reg.png">
+<meta property="og:image" content="http://dhmemi.github.io/images/memios_01_cpu.png">
+<meta property="og:updated_time" content="2017-04-08T13:23:14.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DHMEMI博客">
+<meta name="twitter:title" content="写一个操作系统（一）——预备知识：CUP">
+<meta name="twitter:description" content="引言&amp;emsp;&amp;emsp;在正式开始写我们的操作系统之前，有必要了解一些预备知识，例如一些与硬件有关的知识、汇编、CUP等。这一篇博客主要讲一讲CPU。
+80x86家族&amp;emsp;&amp;emsp;在CPU领域，最具代表性的就是intel的80x86系列，这一系列CPU包含了从8位到32位的CPU,几乎见证了到目前为止整个计算机发展的历史，也是现在大多数系统、汇编教程的常用平台，在这里也不例外。所以我">
+<meta name="twitter:image" content="http://dhmemi.github.io/images/memios_01_sml.png">
 
 
 
@@ -120,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://dhmemi.github.io/"/>
+  <link rel="canonical" href="http://dhmemi.github.io/2017/memiOS-01/"/>
 
 
 
 
 
-  <title> DHMEMI博客 </title>
+  <title> 写一个操作系统（一）——预备知识：CUP | DHMEMI博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,9 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,9 +298,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -308,10 +330,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/memiOS-01/" itemprop="url">
-                  写一个操作系统（一）——预备知识：CUP
-                </a>
+                写一个操作系统（一）——预备知识：CUP
               
             
           </h1>
@@ -407,571 +426,185 @@
       
 
       
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>&emsp;&emsp;在正式开始写我们的操作系统之前，有必要了解一些预备知识，例如一些与硬件有关的知识、汇编、CUP等。这一篇博客主要讲一讲CPU。</p>
+<h1 id="80x86家族"><a href="#80x86家族" class="headerlink" title="80x86家族"></a>80x86家族</h1><p>&emsp;&emsp;在CPU领域，最具代表性的就是intel的80x86系列，这一系列CPU包含了从8位到32位的CPU,几乎见证了到目前为止整个计算机发展的历史，也是现在大多数系统、汇编教程的常用平台，在这里也不例外。所以我们有必要了解一下80x86系列CPU。</p>
+<h2 id="迭代与继承"><a href="#迭代与继承" class="headerlink" title="迭代与继承"></a>迭代与继承</h2><h3 id="8086"><a href="#8086" class="headerlink" title="8086"></a>8086</h3><p>&emsp;&emsp;8086是intel进入16位CPU的标志，8086上提供了共14个寄存器，其名称与功能如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">寄存器</th>
+<th style="text-align:left">全称</th>
+<th style="text-align:center">通用</th>
+<th style="text-align:left">专用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">AX=AH+AL</td>
+<td style="text-align:left">Accumulator<br>累加寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left"><em>乘法指令(Mul)</em>:8x8-&gt;默认AL保存第一个乘数，AX保存结果<br>&emsp;&emsp;16x16-&gt;默认AX保存第一个乘数，AX保存结果的低16位<br><em>除法指令(Div)</em>:16/8-&gt;AX存放被除数， AL保存商，AH保存余数<br>&emsp;&emsp;32/16-&gt; AX存放被除数低16位， AX保存商</td>
+</tr>
+<tr>
+<td style="text-align:center">BX=AH+BL</td>
+<td style="text-align:left">Base<br>基址寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left">用作寻址时的偏移地址</td>
+</tr>
+<tr>
+<td style="text-align:center">CX=CH+CL</td>
+<td style="text-align:left">Counter<br>计数器寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left">用作循环指令(loop)的计数器，每次自动减1，并比较是否大于0，若否，则跳出循环</td>
+</tr>
+<tr>
+<td style="text-align:center">DX=DH+DL</td>
+<td style="text-align:left">Data<br>数据寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left">乘除法中用作32位数的高16位，用做保存余数</td>
+</tr>
+<tr>
+<td style="text-align:center">SI</td>
+<td style="text-align:left">Source Index<br>源变址寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left">源变址寄存器</td>
+</tr>
+<tr>
+<td style="text-align:center">DI</td>
+<td style="text-align:left">Destination Index<br>目的变址寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left">目的变址寄存器</td>
+</tr>
+<tr>
+<td style="text-align:center">BP</td>
+<td style="text-align:left">Base Pointer<br>基指针寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left">单使用[BP]，则代表段地址为SS，偏移量为BP寄存器中的值的内存单元</td>
+</tr>
+<tr>
+<td style="text-align:center">SP</td>
+<td style="text-align:left">Stack Pointer<br>堆栈指针寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_sml.png" alt=""></td>
+<td style="text-align:left">栈指针寄存器，指向调用栈当前位置</td>
+</tr>
+<tr>
+<td style="text-align:center">CS</td>
+<td style="text-align:left">Code Segment<br>代码段寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_cry.png" alt=""></td>
+<td style="text-align:left">代码段寄存器，指向程序代码段的起始地址</td>
+</tr>
+<tr>
+<td style="text-align:center">DS</td>
+<td style="text-align:left">Data Segment<br>数据段寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_cry.png" alt=""></td>
+<td style="text-align:left">指向数据段起始地址</td>
+</tr>
+<tr>
+<td style="text-align:center">SS</td>
+<td style="text-align:left">Stack Segment<br>堆栈段寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_cry.png" alt=""></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">ES</td>
+<td style="text-align:left">Extra Segment<br>附加段寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_cry.png" alt=""></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">IP</td>
+<td style="text-align:left">Instruction Pointer<br>指令指针寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_cry.png" alt=""></td>
+<td style="text-align:left">指向当前代码段中下一条指令的地址</td>
+</tr>
+<tr>
+<td style="text-align:center">FLAGS</td>
+<td style="text-align:left">flags<br>标志寄存器</td>
+<td style="text-align:center"><img src="/images/memios_01_cry.png" alt=""></td>
+<td style="text-align:left">保存一些CPU状态的标志</td>
+</tr>
+</tbody>
+</table>
+<h3 id="80x86"><a href="#80x86" class="headerlink" title="80x86"></a>80x86</h3><p>&emsp;&emsp;相较于8086，80186和80286在指令体系上并没有什么大的变化，只是增加了几条指令，拓宽了地址总线从而增加了寻址空间而已。<br>&emsp;&emsp;80386则有了较大的改变，因为从80386开始，intel进入了32位时代，除段寄存器外的寄存器都被扩展为32位，同时增加了两个16位段寄存器FS、GS，为了兼容16位，这些32位寄存器被分成了两部分，只看每个寄存器的低16位，则与8086完全相同，而高16位部分无法直接使用，只能和低16位一起当作32位使用。这些32位寄存器的名称也继承了16位时代的名称，不同的只是在前面加了个E(extended)，于是就有了这些32位寄存器：</p>
+<blockquote>
+<p>EAX, EBX, ECX, EDX, ESI, EDI, EBP, ESP, CS, DS, SS, ES, FS, GS, EIP, EFLAGS</p>
+</blockquote>
+<p>这些寄存器关系如下图：<br><img src="/images/memios_01_reg.png" alt="图片挂掉了！！！"><br>&emsp;&emsp;80486以及后面的奔腾单核系列相较于80386，基本体系结构也没有大的变化，只是速度有了提升和一些其他小的改进。总体而言，intel系列的CPU进化路线如下图：<br><img src="/images/memios_01_cpu.png" alt="图片挂掉了！！！"></p>
+
+      
+    </div>
+
+    <div>
+      
         
-          
-          引言&emsp;&emsp;在正式开始写我们的操作系统之前，有必要了解一些预备知识，例如一些与硬件有关的知识、汇编、CUP等。这一篇博客主要讲一讲CPU。
-80x86家族&emsp;&emsp;在CPU领域，最具代表性的就是intel的80x86系列，这一系列CPU包含了从8位到32位的CPU,几乎
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/memiOS-01/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://dhmemi.github.io/2017/hexo-scripts/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dhmemi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/headicon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DHMEMI博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/hexo-scripts/" itemprop="url">
-                  巧用Hexo脚本——备份博客源文件与自动打开新文件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T14:46:49+08:00">
-                2017-04-08
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-08T15:33:04+08:00">
-                2017-04-08
-              </time>
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/汇编/" rel="tag"># 汇编</a>
           
-
+            <a href="/tags/CPU/" rel="tag"># CPU</a>
           
-            
-          
-
-          
-          
-             <span id="/2017/hexo-scripts/" class="leancloud_visitors" data-flag-title="巧用Hexo脚本——备份博客源文件与自动打开新文件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-          Hexo脚本&emsp;&emsp;Hexo命令会自动触发一些事件，利用这些事件，我们可以为不同的Hexo命令添加一些额外的自定义功能。我们只需要在Hexo根目录下添加一个scripts文件夹，然后将我们编写的脚本文件放在这个文件夹中，当某一事件被触发时，接收相应事件的脚本就会被自动执行。
-自动备份
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/hexo-scripts/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/hexo-scripts/" rel="next" title="巧用Hexo脚本——备份博客源文件与自动打开新文件">
+                <i class="fa fa-chevron-left"></i> 巧用Hexo脚本——备份博客源文件与自动打开新文件
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://dhmemi.github.io/2017/memiOS-00/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dhmemi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/headicon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DHMEMI博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/memiOS-00/" itemprop="url">
-                  写一个操作系统（〇）——最简单的系统
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T17:38:05+08:00">
-                2017-04-02
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-08T19:59:53+08:00">
-                2017-04-08
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/操作系统/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/memiOS-00/" class="leancloud_visitors" data-flag-title="写一个操作系统（〇）——最简单的系统">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          引言&emsp;&emsp;最近在学操作系统，所以就想着自己实现一个操作系统顺便写一系列教程。而这篇博客就是第一篇。虽然说是一系列教程，然而未必就能够坚持到底，所以，这篇也许是最后一篇。
-一个最简单的操作系统操作系统是怎样运行起来的&emsp;&emsp;要想写一个操作系统，首先得明白操作系统都干了
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/memiOS-00/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://dhmemi.github.io/2017/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dhmemi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/headicon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DHMEMI博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/hello-world/" itemprop="url">
-                  DHMEMI博客自此开始
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T17:14:01+08:00">
-                2017-04-02
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-02T17:14:01+08:00">
-                2017-04-02
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/废话/" itemprop="url" rel="index">
-                    <span itemprop="name">废话</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/hello-world/" class="leancloud_visitors" data-flag-title="DHMEMI博客自此开始">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+    <div class="post-spread">
       
         
-          
-          之前花了半天时间，终于折腾好了自己的博客，第一次利用github-pg搭建个人博客，对着别人写的教程一点点配置，许多地方现在也没弄明白。而且选择的这个主题也不是很美观，本来想自己学着改一改或者直接换个漂亮点的主题，但一想又觉得博客内容才是王道，一天尽折腾主题岂不是跑偏了？有了这样冠冕堂皇的理由，也就
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -979,6 +612,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODA0OS80NjI0"></div>
+    
+  </div>
+
 
         </div>
         
@@ -998,8 +637,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/headicon.jpg"
@@ -1090,6 +738,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#80x86家族"><span class="nav-number">2.</span> <span class="nav-text">80x86家族</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代与继承"><span class="nav-number">2.1.</span> <span class="nav-text">迭代与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8086"><span class="nav-number">2.1.1.</span> <span class="nav-text">8086</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#80x86"><span class="nav-number">2.1.2.</span> <span class="nav-text">80x86</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1202,6 +866,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

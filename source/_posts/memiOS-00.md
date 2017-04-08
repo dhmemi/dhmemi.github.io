@@ -18,7 +18,7 @@ categories:
 ## 编写最简单的操作系统
 ### 申明引导扇区
 &emsp;&emsp;为了载入我们的最简单的操作系统，我们就要把磁盘（或者软盘）中的第一个扇区申明为一个引导扇区（主引导记录MBR）,申明引导扇区的方法很简单，就是在起始扇区末尾两个字节写入0xAA55，所以，我们的引导程序可能是这样的：
-```as
+``` arm
 ;boot programs
 ;510 byte
 dw 0xaa55 ; 结束标志
@@ -26,11 +26,11 @@ dw 0xaa55 ; 结束标志
 有了这行汇编代码，当我们的程序写入磁盘第一个扇区后，这个扇区就会被识别为引导扇区，BIOS就会加载这个扇区到内存特定位置中并执行它。
 ### “Hello, memi OS!”
 &emsp;&emsp;为了输出"Hello, memi OS!"字符串，我们需要在程序中定义一个字符串：
-```c
+``` arm
 BootMessage: db "Hello, memi OS!"
 ```
 &emsp;&emsp;有了字符串以后，我们需要调用BIOS中断函数将这个字符串显示出来。要知道，我们是在开发一个系统底层最开始的程序，这个时候是没有如同我们在编写普通C程序时的“printf()"这样的系统调用的，那怎样才能显示我们的字符串呢？好在硬件开发商已经在BIOS中为我们初始化了一些最基本的和硬件打交道的接口，这些接口的调用地址被初始化在BIOS的[中断向量表(interrupt vector table，IVT)](http://wiki.osdev.org/BIOS)中（如果你对中断还不了解的话，有必要先去了解一下有关中断的知识。）查询x86架构BIOS的中断向量表，可以看到，有一个用于视频服务的中断向量10h，其详细调用方法如下：![图片挂掉了！！！](/images/memios_00_int_10h.png)调用这个中断，并传入合适的参数，即可显示字符串：
-```as
+``` arm
 DispStr:
 mov ax, BootMessage ; 将前面申明的字符串地址传给ax寄存器
 mov bp, ax ; ES:BP = 串地址
@@ -43,11 +43,11 @@ ret
 ```
 ### 载入引导扇区并显示字符串
 &emsp;&emsp;在x86架构中，BIOS会将引导扇区加载到内存中0x7c00h处，并跳转到这里开始执行。为了我们的程序能正确寻址，程序开头必须加上这样一句伪指令：
-```as
+``` arm
 org 0x7c00h ; 告诉编译器程序加载到7c00处
 ```
 接下来，就是调用显示函数然后进入死循环以便我们可以看见显示的内容了：
-```as
+``` arm
 mov ax, cs
 mov ds, ax
 mov es, ax
@@ -56,11 +56,11 @@ jmp $ ; 无限循环(在nasm汇编语言中，$表示当前指令地址)
 ```
 ### 完整程序
 &emsp;&emsp;前面我们说过，一个扇区有512Byte,但如果我们把上面这些程序编译到一起，显然不足512Byte，为了解决这一问题，我们需要在程序后面的空间中都补上0来占位：
-```as
+``` arm
 times 510 - ($-$$) db 0 ; 填充剩下的空间,使生成的二进制代码恰好为512字节(在nasm中，$$表示程序起始地址)
 ```
 所以，我们的整个程序可以是这样的：
-```as
+``` arm
 ；filename: boot.asm
 org 07c00h ; 告诉编译器程序加载到7c00处
 mov ax, cs
@@ -83,11 +83,11 @@ dw 0xaa55 ; 结束标志
 ```
 ### 编译运行
 &emsp;&emsp;在Linux下，安装nasm编译器、bximage磁盘工具、qemu模拟器:
-``` sh
+``` bash
 > sudo apt-get install nasm bximage qemu
 ```
 然后执行命令：
-``` sh
+``` bash
 > nasm boot.asm -o boot.bin #编译生成机器码
 > bximage -fd #创建软盘印象 a.img
 > dd if=boot.bin of=a.img bs=512 count=1 conv=notrunc #将boot程序写入软盘印象文件
